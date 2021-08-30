@@ -21,8 +21,7 @@
 食事を作るとき
 
 ## 設計書
-
-## ER図
+ER図は[こちら]（https://drive.google.com/file/d/1mbXZhi95A6SxY7D9HZIhqUfY2Xstbf6z/view?usp=sharing）　から
 
 ## チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/1ks03mdRbwzQTORNZpOAkXXonfofe_fs5Pvk2s3JDFE8/edit?usp=sharing
