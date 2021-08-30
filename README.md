@@ -22,7 +22,7 @@
 
 ## 設計書
 
-##　ER図
+## ER図
 
 ## チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/1ks03mdRbwzQTORNZpOAkXXonfofe_fs5Pvk2s3JDFE8/edit?usp=sharing
