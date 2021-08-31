@@ -25,6 +25,8 @@ ER図は[こちら](https://drive.google.com/file/d/1mbXZhi95A6SxY7D9HZIhqUfY2Xs
 
 アプリケーション詳細設計は[こちら](https://docs.google.com/spreadsheets/d/1nrY75YhBcmvgCmqbBHQur_fS3lxxH8Wj/edit?usp=sharing&ouid=115434469543117224080&rtpof=true&sd=true)
 
+テーブル提議書は[こちら](https://docs.google.com/spreadsheets/d/1fyC5lmLXJYVmVO4jbr6n-fIwfALSmuHqzQwMvV9jzNE/edit?usp=sharing)
+
 ## チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/1ks03mdRbwzQTORNZpOAkXXonfofe_fs5Pvk2s3JDFE8/edit?usp=sharing
 
