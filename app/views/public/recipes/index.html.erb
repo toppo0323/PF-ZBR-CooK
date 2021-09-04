@@ -1,0 +1,16 @@
+<h1>レシピ</h1>
+
+<% @recipes.each do |recipe| %>
+
+<div>
+  
+  <h5>料理名</h5><p><%= recipe.name %></p>
+  <h5>IMAGE</h5><p><%= attachment_image_tag recipe, :image, size: "210x150" %></p>
+  <%= link_to "レシピ詳細を見る", recipe_path(recipe.id) %>
+  
+</div>
+
+<% end %>
+
+
+<%= link_to "レシピ新規投稿", new_recipe_path %>
