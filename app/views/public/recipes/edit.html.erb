@@ -1,0 +1,23 @@
+<h1>会員情報編集</h1>
+
+<%= form_with model: @recipe, local: true do |f| %>
+
+<div class="form-inline row mb-3 text-right">
+  <%= f.label :料理名 %>
+  <%= f.text_field :name, autofocus: true %>
+</div>
+<div class="form-inline row mb-3 text-right">
+  <%= f.label :image, "画像" %>
+  <%= f.attachment_field :image %>
+</div>
+<div class="form-inline row mb-3 text-right">
+  <%= f.label :材料 %>
+  <%= f.text_field :ingredient, autofocus: true %>
+</div>
+<div class="form-inline row mb-3 text-right">
+  <%= f.label :作り方 %>
+  <%= f.text_field :process, autofocus: true %>
+</div> 
+ <%= f.submit "編集内容を保存" %>
+
+<% end %>
