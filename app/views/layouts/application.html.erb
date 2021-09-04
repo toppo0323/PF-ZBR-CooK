@@ -10,6 +10,70 @@
   </head>
 
   <body>
+    <header>
+      <h3>
+        <%= link_to "ZBRCOOK", root_path %>
+      </h3>
+
+       <% if customer_signed_in? %>
+       <div>
+          <ul>
+            <li>
+              <%= link_to "レシピ" %>
+            </li>
+            <li>
+              <%= link_to "ランキング" %>
+            </li>
+            <li>
+              <%= link_to "マイページ", customer_path(current_customer) %>
+            </li>
+            <li>
+              <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
+            </li>
+          </ul>
+        </div>
+
+        <% elsif admin_signed_in? %>
+         <div>
+          <ul>
+            <li>
+              <%= link_to "ジャンル一覧" %>
+            </li>
+            <li>
+              <%= link_to "レシピ一覧" %>
+            </li>
+            <li>
+              <%= link_to "会員一覧" %>
+            </li>
+            <li>
+              <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+            </li>
+          </ul>
+        </div>
+
+        <% else %>
+      <div>
+          <ul>
+            <li>
+              <%= link_to "About" %>
+            </li>
+            <li>
+              <%= link_to "レシピ" %>
+            </li>
+            <li>
+              <%= link_to "新規登録",new_customer_registration_path %>
+            </li>
+            <li>
+              <%= link_to "ログイン",new_customer_session_path %>
+            </li>
+          </ul>
+        </div>
+
+
+        <% end %>
+
+    </header>
+
     <%= yield %>
   </body>
 </html>
