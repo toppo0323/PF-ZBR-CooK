@@ -2,8 +2,6 @@ Rails.application.routes.draw do
 
 
 
-
- 
  devise_for :admins, controllers: {
   sessions:      'admins/sessions',
   passwords:     'admins/passwords',
@@ -20,11 +18,13 @@ devise_for :customers, controllers: {
 scope module: :public do
     root 'homes#top'
     get 'about' => 'homes#about'
-    
-    resources :customers,only:[:show,:edit,:update]
-    
-    resources :recipes
 
+    resources :customers,only:[:show,:edit,:update]
+
+    resources :recipes do
+        resources :comments,only: [:create, :destroy]
+        resource :likes, only: [:create, :destroy]
+    end
 
 end
 
