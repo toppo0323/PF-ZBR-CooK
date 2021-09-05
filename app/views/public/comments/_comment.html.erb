@@ -1,0 +1,15 @@
+<div class = "comments">
+  
+   <h5>コメント一覧:<%= @recipe.comments.count %></h5>
+   <% @recipe.comments.each do |comment| %>
+     <%#= image_tag('no_image.jpg')%>
+     <%= comment.customer.name %>
+     <%= comment.created_at.strftime('%Y/%m/%d') %>
+     <%= comment.comment %>
+    <% if comment.customer == current_customer %>
+     <div class="comment-delete">
+       <%= link_to "destroy", recipe_comment_path(comment.recipe,comment), method: :delete, remote: true %>
+     </div>
+    <% end %>
+   <% end %>
+  </div>
