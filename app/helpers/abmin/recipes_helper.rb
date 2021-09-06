@@ -1,0 +1,2 @@
+module Abmin::RecipesHelper
+end
