@@ -1,0 +1,27 @@
+<% if admin_signed_in? %>
+
+  <h3>ジャンル追加</h3>
+  
+    <%= form_with model: @genre, url: admin_genres_path, local: true do |f| %>
+      <%= f.label "ジャンル名" %>
+      <%= f.text_field :name, size: 35 %>
+      <%= f.submit "新規登録", class: 'btn btn-success' %>
+    <% end %>
+    
+  <h3>ジャンル</h3>
+  
+  <table class="table">
+    <% @genres.each do |genre| %>
+        <tbody>
+         <tr>
+          <td><%= genre.name %></td>
+          <td><%= link_to "編集する", edit_admin_genre_path(genre),class:"btn btn-success" %></td>
+         </tr>
+        </tbody>
+  
+    <% end %>
+  </table>
+    
+<% else %>
+  管理者専用ページです。閲覧のためにはログインが必要になります。
+<% end %>
