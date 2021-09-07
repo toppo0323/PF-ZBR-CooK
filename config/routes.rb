@@ -18,6 +18,7 @@ devise_for :admins, controllers: {
 
 namespace :admin do
  resources :recipes,only:[:index,:show,:edit,:update,:destroy]
+ resources :genres,only:[:index,:create,:edit,:update]
 end
 
 

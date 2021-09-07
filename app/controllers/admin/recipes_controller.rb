@@ -12,16 +12,13 @@ class Admin::RecipesController < ApplicationController
 
   def edit
     @recipe = Recipe.find(params[:id])
-    
   end
 
   def update
     @recipe = Recipe.find(params[:id])
     if @recipe.update(recipe_params)
-      flash[:succes]= "You have created book successfully."
       redirect_to admin_recipe_path(@recipe.id)
     else
-      flash[:notice]= 'errors prohibited this obj from being saved:'
       render "edit"
     end
   end
@@ -35,7 +32,7 @@ class Admin::RecipesController < ApplicationController
   private
 
   def recipe_params
-    params.require(:recipe).permit(:name,:image,:ingredient,:process)
+    params.require(:recipe).permit(:name,:image,:ingredient,:process,:genre_id)
   end
 
 end
