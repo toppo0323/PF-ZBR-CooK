@@ -4,13 +4,18 @@
   <%= attachment_image_tag @recipe, :image %>
   <p>材料：<%= @recipe.ingredient %></p>
   <p>作り方：<%= @recipe.process %></p>
+  <p>ジャンル：
+      <% @recipe.genres.each do |genre| %>
+      <%= genre.name %>
+      <% end %>
+  </p>
   <p>投稿日時：<%= @recipe.created_at.strftime('%Y/%m/%d') %></p>
 
   <!--いいね機能記述（非同期通信）-->
-  
+
    <div id="likes_buttons_<%= @recipe.id %>">
        <%= render "public/likes/like", recipe: @recipe %>
-  
+
    </div>
 
    <% if @recipe.customer == current_customer %>
@@ -18,7 +23,7 @@
     <%= link_to "Destroy", recipe_path(@recipe), method: :delete %>
   <% end %>
 
-  
+
     <div class="comment">
      <%= render partial: "public/comments/comment", locals: { recipes: @recipe }%>
     </div>
