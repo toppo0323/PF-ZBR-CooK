@@ -1,7 +1,7 @@
 
 <h1>レシピ編集（管理者）</h1>
 
-<%= form_with model: @recipe, local: true do |f| %>
+<%= form_with model: @recipe,url: admin_recipe_path(@recipe.id), local: true do |f| %>
 
 <div class="form-inline row mb-3 text-right">
   <%= f.label :料理名 %>
