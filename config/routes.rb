@@ -1,19 +1,29 @@
 Rails.application.routes.draw do
+# For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
 
-
- devise_for :admins, controllers: {
-  sessions:      'admins/sessions',
-  passwords:     'admins/passwords',
-  registrations: 'admins/registrations'
-}
 devise_for :customers, controllers: {
   sessions:      'customers/sessions',
   passwords:     'customers/passwords',
   registrations: 'customers/registrations'
 }
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+devise_for :admins, controllers: {
+  sessions:      'admins/sessions',
+  passwords:     'admins/passwords',
+  registrations: 'admins/registrations'
+}
 
+  
+#管理者側ルーティング
+
+namespace :admin do
+ resources :recipes,only:[:index,:show,:edit,:update,:destroy]
+ resources :genres,only:[:index,:create,:edit,:update]
+end
+
+
+
+#会員側ルーティング
 
 scope module: :public do
     root 'homes#top'
@@ -25,8 +35,6 @@ scope module: :public do
         resources :comments,only: [:create, :destroy]
         resource :likes, only: [:create, :destroy]
     end
-
 end
-
 
 end

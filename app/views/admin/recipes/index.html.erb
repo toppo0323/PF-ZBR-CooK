@@ -1,0 +1,14 @@
+<h3>レシピ（管理者）</h3>
+
+<% @recipes.each do |recipe| %>
+
+<div>
+
+  <h5>料理名</h5><p><%= recipe.name %></p>
+  <h5>IMAGE</h5><p><%= attachment_image_tag recipe, :image, size: "210x150" %></p>
+  <%= link_to "レシピ詳細を見る", admin_recipe_path(recipe.id) %>
+  <p><%= link_to "#{recipe.comments.count} コメント", admin_recipe_path(recipe.id) %></p>
+
+</div>
+
+<% end %>
