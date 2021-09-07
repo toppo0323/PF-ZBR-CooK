@@ -1,5 +1,5 @@
 class Admin::RecipesController < ApplicationController
-  before_action :authenticate_admin!, except: [:edit, :update, :index, :show,:destroy]
+  before_action :authenticate_admin!
 
   def index
     @recipes = Recipe.all

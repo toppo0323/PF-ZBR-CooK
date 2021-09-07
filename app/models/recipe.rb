@@ -6,9 +6,13 @@ class Recipe < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :genre_relations
   has_many :genres, through: :genre_relations
+  
+  def self.search(keyword)
+    where(["name like?", "%#{keyword}%"])
+  end
 
   def liked_by?(customer)
     likes.where(customer_id: customer.id).exists?
   end
 
-end
+end   
