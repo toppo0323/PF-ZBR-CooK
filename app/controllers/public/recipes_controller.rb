@@ -3,7 +3,11 @@ class Public::RecipesController < ApplicationController
   def index
     @recipes = Recipe.all
     @genres = Genre.all
+    @all_ranks = Recipe.find(Like.group(:recipe_id).order('count(recipe_id) desc').limit(10).pluck(:recipe_id))
+
+     
   end
+  
 
   def show
     @recipe = Recipe.find(params[:id])
@@ -47,6 +51,10 @@ class Public::RecipesController < ApplicationController
     @recipe.destroy
     redirect_to recipes_path
   end
+  
+  def rank
+    @all_ranks = Recipe.find(Like.group(:recipe_id).order('count(recipe_id) desc').limit(10).pluck(:recipe_id))
+  end
 
   private
 
@@ -55,3 +63,4 @@ class Public::RecipesController < ApplicationController
   end
 
 end
+
