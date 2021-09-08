@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
 
@@ -20,6 +21,7 @@ devise_for :admins, controllers: {
 namespace :admin do
  resources :recipes,only:[:index,:show,:edit,:update,:destroy]
  resources :genres,only:[:index,:create,:edit,:update]
+ resources :customers,only:[:index,:show,:edit,:update]
 end
 
 
@@ -31,12 +33,14 @@ scope module: :public do
     root 'homes#top'
     get 'about' => 'homes#about'
     get '/search' => 'searches#search'
+    get '/rank' => 'recipes#rank'
     resources :customers,only:[:show,:edit,:update]
 
     resources :recipes do
         resources :comments,only: [:create, :destroy]
         resource :likes, only: [:create, :destroy]
         get :search, on: :collection
+
     end
 end
 

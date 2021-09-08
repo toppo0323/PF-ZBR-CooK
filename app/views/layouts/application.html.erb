@@ -42,7 +42,7 @@
               <%= link_to "レシピ", recipes_path %>
             </li>
             <li>
-              <%= link_to "ランキング" %>
+              <%= link_to "ランキング", rank_path  %>
             </li>
             <li>
               <%= link_to "マイページ", customer_path(current_customer) %>
@@ -52,9 +52,9 @@
             </li>
           </ul>
         </div>
-      
+
     <%= render 'layouts/search' %>
-      
+
         <% else %>
       <div>
           <ul>
