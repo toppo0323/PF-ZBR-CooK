@@ -10,9 +10,10 @@
     <% @genres.each do |genre| %>
       <tr>
         <td>
-          <%= link_to genre.name, search_path('search[value]': genre.id, 'search[how]': "match") %>
+          <%= link_to genre.name, search_path(genre), method: :get %>
         </td>
       </tr>
+
     <% end %>
     </tbody>
 </table>
@@ -33,3 +34,10 @@
 
 
 <%= link_to "レシピ新規投稿", new_recipe_path %>
+
+<h4>ランキング</h4>
+<p><% @all_ranks.each do |recipe| %>
+
+ <%= link_to recipe.name, recipe_path(recipe.id) %>
+</p>
+<% end %>
