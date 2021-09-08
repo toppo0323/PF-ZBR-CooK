@@ -1,0 +1,6 @@
+<h4>ランキング</h4>
+<p><% @all_ranks.each.with_index(1) do |recipe, i| %>
+      第<%= i %>位
+ <%= link_to recipe.name, recipe_path(recipe.id) %>
+</p>
+<% end %>

@@ -1,6 +1,6 @@
 
 <h1>レシピ編集（管理者）</h1>
-
+<!--url: admin_recipe_path(@recipe.id)とすることで遷移先が変わる、デフォルトはpublic-->
 <%= form_with model: @recipe,url: admin_recipe_path(@recipe.id), local: true do |f| %>
 
 <div class="form-inline row mb-3 text-right">
