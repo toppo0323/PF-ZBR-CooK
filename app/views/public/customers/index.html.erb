@@ -1,29 +1,23 @@
-<% if admin_signed_in? %>
- <div class="col-md-8 offset-md-2">
+<div class="col-md-8 offset-md-2">
       <h3><span class="badge badge-pill badge-dark">会員一覧</span></h3>
       <table class="table table-hover table-inverse">
        <thead>
         <tr class="bg-light">
-          <th>会員ID</th>
+     
           <th>氏名</th>
-          <th>メールアドレス</th>
+         
           <th></th>
         </tr>
       </thead>
        <% @customers.each do |customer| %>
       <tbody>
        <tr>
-        <td><%= customer.id %></td>
+       
         <td><%= customer.name %></td>
-        <td><%= customer.email %></td>
+       
         <th><%= link_to "レシピ", admin_customer_path(customer.id) %><tr>
       </tbody>
       <% end %>
       </table>
       
     </div>
-<% else %>
-  管理者専用ページです。閲覧のためにはログインが必要になります。
-<% end %>
-
-

@@ -1,2 +1,14 @@
-<h1>Admin::Customers#show</h1>
-<p>Find me in app/views/admin/customers/show.html.erb</p>
+<h1><%= @customer.name %>さんのレシピ</h1>
+
+<% @customer.recipes.each do |recipe| %>
+
+<div>
+
+  <h5>料理名</h5><p><%= recipe.name %></p>
+  <h5>IMAGE</h5><p><%= attachment_image_tag recipe, :image, size: "210x150" %></p>
+  <%= link_to "レシピ詳細を見る", admin_recipe_path(recipe.id) %>
+  <p><%= link_to "#{recipe.comments.count} コメント", recipe_path(recipe.id) %></p>
+
+</div>
+
+<% end %>
