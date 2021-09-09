@@ -1,4 +1,16 @@
 <h3>マイページ</h3>
 <h5>登録情報</h5>
 
+<td><%= @customer.name %></td>
+<td>フォロー数: <%= @customer.followings.count %></td>
+<td>フォロワー数:<%= @customer.followers.count %></td>
+
+
+
+<% @customer.recipes.each do |recipe| %>
+ <h5>料理名</h5><p><%= recipe.name %></p>
+  <h5>IMAGE</h5><p><%= attachment_image_tag recipe, :image, size: "210x150" %></p>
+  <%= link_to "レシピ詳細を見る", recipe_path(recipe.id) %>
+<% end %>
+
 <%= link_to "編集する", edit_customer_path %>

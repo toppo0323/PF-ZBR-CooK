@@ -26,7 +26,7 @@
               <%= link_to "レシピ一覧", admin_recipes_path %>
             </li>
             <li>
-              <%= link_to "会員一覧" %>
+              <%= link_to "会員一覧", admin_customers_path%>
             </li>
             <li>
               <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
@@ -43,6 +43,9 @@
             </li>
             <li>
               <%= link_to "ランキング", rank_path  %>
+            </li>
+            <li>
+              <%= link_to "投稿者", customers_path  %>
             </li>
             <li>
               <%= link_to "マイページ", customer_path(current_customer) %>
