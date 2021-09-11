@@ -38,6 +38,9 @@ scope module: :public do
         resource :follow_relationships, only: [:create, :destroy]
         get 'followings' => 'follow_relationships#followings', as: 'followings'
         get 'followers' => 'follow_relationships#followers', as: 'followers'
+        member do
+            get 'recipelist'
+        end    
     end
     resources :recipes do
         resources :comments,only: [:create, :destroy]
