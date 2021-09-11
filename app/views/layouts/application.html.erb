@@ -4,83 +4,24 @@
     <title>PFZbrCook</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
   </head>
 
   <body>
-    <header>
-      <h3>
-        <%= link_to "ZBRCOOK", root_path %>
-      </h3>
-
-       <% if admin_signed_in? %>
-
-         <div>
-          <ul>
-            <li>
-              <%= link_to "ジャンル一覧", admin_genres_path %>
-            </li>
-            <li>
-              <%= link_to "レシピ一覧", admin_recipes_path %>
-            </li>
-            <li>
-              <%= link_to "会員一覧", admin_customers_path%>
-            </li>
-            <li>
-              <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
-            </li>
-          </ul>
-        </div>
-
-        <% elsif customer_signed_in? %>
-
-       <div>
-          <ul>
-            <li>
-              <%= link_to "レシピ", recipes_path %>
-            </li>
-            <li>
-              <%= link_to "ランキング", rank_path  %>
-            </li>
-            <li>
-              <%= link_to "投稿者", customers_path  %>
-            </li>
-            <li>
-              <%= link_to "マイページ", customer_path(current_customer) %>
-            </li>
-            <li>
-              <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
-            </li>
-          </ul>
-        </div>
-
-    <%= render 'layouts/search' %>
-
-        <% else %>
-      <div>
-          <ul>
-            <li>
-              <%= link_to "About", about_path %>
-            </li>
-            <li>
-              <%= link_to "レシピ", recipes_path %>
-            </li>
-            <li>
-              <%= link_to "新規登録",new_customer_registration_path %>
-            </li>
-            <li>
-              <%= link_to "ログイン",new_customer_session_path %>
-            </li>
-          </ul>
-        </div>
-
-
-        <% end %>
-
+    <header class = "page-header">
+      <div class = "wrapper">
+      <%= render "layouts/header" %>
+      </div>
     </header>
 
-    <%= yield %>
+ <%= yield %>
+
+    <footer>
+
+    </footer>
+
   </body>
 </html>

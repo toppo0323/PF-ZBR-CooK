@@ -1,4 +1,4 @@
-<h2>Follower Users</h2>
+<h2>Following Users</h2>
 <% if @customer.exists? %>
 <table class="table table-hover table-inverse">
   <thead>
@@ -11,7 +11,7 @@
   <tbody>
     <% @customer.each do |customer| %>
       <tr>
-        <td><%= customer.name %></td>
+        <td><%= link_to customer.name, recipelist_customer_path(customer.id) %></td>
         <td>フォロー数: <%= customer.followings.count %></td>
         <td>フォロワー数: <%= customer.followers.count %></td>
       </tr>

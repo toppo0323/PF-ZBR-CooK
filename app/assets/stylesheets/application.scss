@@ -13,3 +13,97 @@
  *= require_tree .
  *= require_self
  */
+
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.page-header {
+   
+  background-color: #FFE4C4;
+  background-size: cover;
+  
+  
+
+  li{
+    list-style: none;
+    margin-left: 30px;
+    }
+  
+  .box-anchor {
+  text-decoration: none;
+  }
+
+  .box {
+    color: #663300;
+    width: 75px;
+    text-align: center;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 15px;
+  }
+  
+  .box:hover {
+    background-color: #D2B48C;
+  }
+
+    
+  li a{
+    color: #432;
+    text-decoration: none;
+  }
+
+  .img{
+  width: 300px;
+  border-radius: 10px;
+  }
+
+  .main-nav{
+    display: flex;
+    padding-top: 25px;
+   
+  }
+  .button {
+  display       : inline-block;
+  border-radius : 5%;          /* 角丸       */
+  font-size     : 8pt;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 12px 12px;   /* 余白       */
+  background    : rgba(127, 70, 0, 0.23);     /* 背景色     */
+  color         : #412100;     /* 文字色     */
+  line-height   : 1em;         /* 1行の高さ  */
+  opacity       : 1;           /* 透明度     */
+  transition    : .3s;         /* なめらか変化 */
+  box-shadow    : 3px 3px 2px #666666;  /* 影の設定 */
+  }
+  .button:hover {
+    box-shadow    : none;        /* カーソル時の影消去 */
+    opacity       : 0.8;         /* カーソル時透明度 */
+  }
+}
+
+
+
+.wrapper{
+    display: flex;
+   justify-content: space-between;
+  // 両橋に設置
+    max-width: 1700px;
+    margin: 0 auto;
+    padding: 5px 4%;
+  }
+
+.search{
+  display: flex;
+  padding-top: 20px;
+}
+
+input[type="text"] {
+        width: 250px;
+        height: 30px;
+        
+    }

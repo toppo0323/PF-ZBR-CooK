@@ -3,11 +3,12 @@ class Public::CustomersController < ApplicationController
   before_action :authenticate_customer!, except: [:contact]
 
   def index 
-    @customers = Customer.all
+    @customers = Customer.all.page(params[:page]).per(10)
   end
   
   def show
     @customer = Customer.find(params[:id])
+    
   end
 
   def edit
@@ -19,6 +20,12 @@ class Public::CustomersController < ApplicationController
     @customer.update(customer_params)
     redirect_to customer_path(@customer.id)
   end
+  
+  def recipelist
+    @customer = Customer.find(params[:id])
+    #binding.pry
+  end
+  
 
   private
 

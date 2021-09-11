@@ -1,7 +1,10 @@
 <div class = "search" >
-  <h5>レシピ検索</h5>
+
     <%= form_with url: search_path, method: :get, local: true do |f| %>
-      <%= f.text_field :keyword, value: @keyword %>
-      <%= f.submit "Search", class: "btn btn-outline-primary" %>
+      <%= f.text_field :keyword, value: @keyword, placeholder: " レシピ,料理名を検索", size: "30x50"%>
+      <%= button_tag type: 'submit', class: "button" do %>
+      <i class="fas fa-search"></i>
+      <% end %>
     <% end %>
 </div>
+

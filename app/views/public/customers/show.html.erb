@@ -2,9 +2,8 @@
 <h5>登録情報</h5>
 
 <td><%= @customer.name %></td>
-<td>フォロー数: <%= @customer.followings.count %></td>
-<td>フォロワー数:<%= @customer.followers.count %></td>
-
+    <td><%= link_to"フォロー数: #{@customer.followings.count}", customer_followings_path(@customer.id) %></td>
+    <td><%= link_to"フォロワー数: #{@customer.followers.count}",  customer_followers_path(@customer.id) %></td>
 
 
 <% @customer.recipes.each do |recipe| %>

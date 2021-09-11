@@ -23,8 +23,8 @@ class Customer < ApplicationRecord
  def unfollow(customer_id)
    follow_relationships.find_by(followed_id: customer_id).destroy
  end
- def folloing?(customer)
-   followings.inclube?(customer)
+ def following?(customer)
+   followings.include?(customer)
  end
  
 end

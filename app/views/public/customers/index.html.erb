@@ -15,7 +15,10 @@
        
         <td><%= customer.name %></td>
        
-        <th><%= link_to "レシピ", admin_customer_path(customer.id) %><tr>
+        <td><%= link_to "レシピ", recipelist_customer_path(customer.id) %><td>
+        <td><%= link_to"フォロー数: #{customer.followings.count}", customer_followings_path(customer.id) %></td>
+        <td><%= link_to"フォロワー数: #{customer.followers.count}",  customer_followers_path(customer.id) %></td>
+
       </tbody>
       <% end %>
       </table>
