@@ -1,11 +1,11 @@
 class Public::RecipesController < ApplicationController
 
+ 
+  
   def index
     @recipes = Recipe.all
     @genres = Genre.all
     @all_ranks = Recipe.find(Like.group(:recipe_id).order('count(recipe_id) desc').limit(10).pluck(:recipe_id))
-
-     
   end
   
 

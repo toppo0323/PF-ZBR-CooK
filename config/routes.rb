@@ -34,8 +34,14 @@ scope module: :public do
     get 'about' => 'homes#about'
     get '/search' => 'searches#search'
     get '/rank' => 'recipes#rank'
-    resources :customers,only:[:show,:edit,:update]
-
+    resources :customers,only:[:index,:show,:edit,:update] do
+        resource :follow_relationships, only: [:create, :destroy]
+        get 'followings' => 'follow_relationships#followings', as: 'followings'
+        get 'followers' => 'follow_relationships#followers', as: 'followers'
+        member do
+            get 'recipelist'
+        end    
+    end
     resources :recipes do
         resources :comments,only: [:create, :destroy]
         resource :likes, only: [:create, :destroy]

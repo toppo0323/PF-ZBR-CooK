@@ -1,0 +1,100 @@
+
+      <h4>
+         <% if admin_signed_in? %>
+            <%= link_to image_tag("image0-3.jpg", class:"img-rounded img"), admin_recipes_path, class: "text-dark" %>
+          <% else %>
+            <%= link_to image_tag("image0-3.jpg", class:"img-rounded img"), root_path, class: "text-dark" %>
+          <% end %>
+      </h4>
+
+       <% if admin_signed_in? %>
+
+         <nav>
+          <ul class = "main-nav">
+            <li>
+              <%= link_to "ジャンル一覧", admin_genres_path %>
+            </li>
+            <li>
+              <%= link_to "レシピ一覧", admin_recipes_path %>
+            </li>
+            <li>
+              <%= link_to "会員一覧", admin_customers_path%>
+            </li>
+            <li>
+              <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+            </li>
+          </ul>
+        </nav>
+
+        <% elsif customer_signed_in? %>
+        
+        <div class = "search"><%= render 'layouts/search' %></div>
+        
+       <nav>
+          <ul class = "main-nav">
+            <li>
+              <%= link_to recipes_path,class: "box-anchor" do %>
+                <div class="box">
+                 <i class="fa fa-utensils fa-2x"></i>
+                  <div>れしぴ</div>
+                </div>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to rank_path,class: "box-anchor" do %>
+                <div class="box">
+                 <i class="fa fa-crown fa-2x"></i>
+                  <div>らんきんぐ</div>
+                </div>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to customers_path,class: "box-anchor" do %>
+                <div class="box">
+                 <i class="fa fa-users fa-2x"></i>
+                  <div>なかま</div>
+                </div>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to customer_path(current_customer),class: "box-anchor" do %>
+                <div class="box">
+                 <i class="fa fa-home fa-2x"></i>
+                  <div>まいぺーじ</div>
+                </div>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to destroy_customer_session_path, method: :delete,class: "box-anchor" do %>
+                <div class="box">
+                 <i class="fa fa-sign-out-alt fa-2x"></i>
+                  <div>ろぐあうと</div>
+                </div>
+              <% end %>
+            </li>
+          </ul>
+        </nav>
+
+    
+
+        <% else %>
+      <nav>
+          <ul class = "main-nav">
+            <li>
+              <%= link_to "About", about_path %>
+            </li>
+            <li>
+              <%= link_to "レシピ", recipes_path %>
+            </li>
+            <li>
+              <%= link_to "新規登録",new_customer_registration_path %>
+            </li>
+            <li>
+              <%= link_to "ログイン",new_customer_session_path %>
+            </li>
+          </ul>
+        </nav>
+
+
+        <% end %>
+
