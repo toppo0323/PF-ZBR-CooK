@@ -34,7 +34,7 @@ ER図は[こちら](https://drive.google.com/file/d/1mbXZhi95A6SxY7D9HZIhqUfY2Xs
 ## チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/1ks03mdRbwzQTORNZpOAkXXonfofe_fs5Pvk2s3JDFE8/edit?usp=sharing
 
-Google Vision API　を用い、画像解析をする。レシピ画像から他のレシピを検索したり、その料理のおすすめのお店を紹介したりする。
+
 
 ## 開発環境
 - OS：Linux(CentOS)
