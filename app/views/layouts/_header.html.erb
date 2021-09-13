@@ -36,7 +36,7 @@
               <%= link_to recipes_path,class: "box-anchor" do %>
                 <div class="box">
                  <i class="fa fa-utensils fa-2x"></i>
-                  <div>れしぴ</div>
+                  <div>レシピ</div>
                 </div>
               <% end %>
             </li>
@@ -44,7 +44,7 @@
               <%= link_to rank_path,class: "box-anchor" do %>
                 <div class="box">
                  <i class="fa fa-crown fa-2x"></i>
-                  <div>らんきんぐ</div>
+                  <div>ランキング</div>
                 </div>
               <% end %>
             </li>
@@ -52,7 +52,7 @@
               <%= link_to customers_path,class: "box-anchor" do %>
                 <div class="box">
                  <i class="fa fa-users fa-2x"></i>
-                  <div>なかま</div>
+                  <div>ユーザー</div>
                 </div>
               <% end %>
             </li>
@@ -60,7 +60,7 @@
               <%= link_to customer_path(current_customer),class: "box-anchor" do %>
                 <div class="box">
                  <i class="fa fa-home fa-2x"></i>
-                  <div>まいぺーじ</div>
+                  <div>マイページ</div>
                 </div>
               <% end %>
             </li>
@@ -68,7 +68,7 @@
               <%= link_to destroy_customer_session_path, method: :delete,class: "box-anchor" do %>
                 <div class="box">
                  <i class="fa fa-sign-out-alt fa-2x"></i>
-                  <div>ろぐあうと</div>
+                  <div>ログアウト</div>
                 </div>
               <% end %>
             </li>
@@ -78,19 +78,40 @@
     
 
         <% else %>
+      <div class = "search"><%= render 'layouts/search' %></div>
       <nav>
           <ul class = "main-nav">
             <li>
-              <%= link_to "About", about_path %>
+              <%= link_to about_path,class: "box-anchor" do %>
+                <div class="box">
+                 <i class="fa fa-kiwi-bird fa-2x"></i>
+                  <div>About</div>
+                </div>
+              <% end %>
             </li>
             <li>
-              <%= link_to "レシピ", recipes_path %>
+              <%= link_to recipes_path,class: "box-anchor" do %>
+                <div class="box">
+                 <i class="fa fa-utensils fa-2x"></i>
+                  <div>レシピ</div>
+                </div>
+              <% end %>
             </li>
             <li>
-              <%= link_to "新規登録",new_customer_registration_path %>
+              <%= link_to new_customer_registration_path,class: "box-anchor" do %>
+                <div class="box">
+                 <i class="fa fa-user-plus fa-2x"></i>
+                  <div>新規登録</div>
+                </div>
+              <% end %>
             </li>
             <li>
-              <%= link_to "ログイン",new_customer_session_path %>
+              <%= link_to new_customer_session_path,class: "box-anchor" do %>
+                <div class="box">
+                 <i class="fa fa-sign-in-alt fa-2x"></i>
+                  <div>ログイン</div>
+                </div>
+              <% end %>
             </li>
           </ul>
         </nav>

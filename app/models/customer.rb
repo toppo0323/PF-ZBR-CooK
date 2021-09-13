@@ -11,7 +11,7 @@ class Customer < ApplicationRecord
  has_many :followers, through: :reverse_of_follow_relationships, source: :follower
  has_many :follow_relationships, class_name: "FollowRelationship", foreign_key: "follower_id", dependent: :destroy
  has_many :followings, through: :follow_relationships, source: :followed
- 
+ attachment :image
  
  def recipes
    return Recipe.where(customer_id: self.id)

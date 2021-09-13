@@ -1,17 +1,63 @@
-<h1><%= @customer.name %>さんのレシピ</h1>
+<h3><%= @customer.name %>さんのレシピ</h3>
 
-<%= render '/public/customers/info', customer: @customer %>
+<div class = "row pt-4">
+  <div class="col-9">
+    <div class="row">
+    <% @customer.recipes.each do |recipe| %>
+      <div class="card-group mb-3 col-4">
+        <%= link_to recipe_path(recipe.id) do %>
+          <div class="card border-secondary">
+          <%= attachment_image_tag recipe, :image, size: "100x230", class: "bd-placeholder-img card-img-top" %>
+            <div class="card-body">
+              <div class="card-img-overlay ">
+                <i class="far fa-heart">
+                <%="#{recipe.likes.count}" %>
+                </i>
+                <i class="far fa-comment-dots">
+                <%="#{recipe.comments.count}" %>
+                </i>
+              </div>
+              <h5 class="card-title">
+                <%= recipe.name %><br>
+              </h5>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+    </div>
+  </div>
 
-
-<% @customer.recipes.each do |recipe| %>
-
-<div>
-
-  <h5>料理名</h5><p><%= recipe.name %></p>
-  <h5>IMAGE</h5><p><%= attachment_image_tag recipe, :image, size: "210x150" %></p>
-  <%= link_to "レシピ詳細を見る", recipe_path(recipe.id) %>
-  <p><%= link_to "#{recipe.comments.count} コメント", recipe_path(recipe.id) %></p>
+  <div class="col-md-3">
+    <div class="card">
+      <div class="card-header text-center font-weight-bold">
+        User Info
+      </div>
+      <%= attachment_image_tag @customer, :image, size: "100x200", class: "bd-placeholder-img card-img-top" %>
+      <div class="card-body">
+        <h5 class="card-title ml-2">
+          <%= @customer.name %>
+        </h5>
+        <div class="text-center mb-2">
+          <%= render '/public/customers/info', customer: @customer %>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item follow">
+            <%= link_to"フォロワー: #{@customer.followers.count}",  customer_followers_path(@customer.id) %>
+          </li>
+          <li class="list-group-item follow">
+            <%= link_to"フォロー: #{@customer.followings.count}", customer_followings_path(@customer.id) %>
+          </li>
+          <li class="list-group-item">
+            <%= "レシピ数: #{@customer.recipes.count}" %>
+          </li>
+        </ul>
+        <p class="card-text">
+          <span class="badge badge-pill badge-info mb-2">Introduction</span><br>
+          <%= @customer.introduction %>
+        </p>
+      </div>
+    </div>
+  </div>
 
 </div>
-
-<% end %>

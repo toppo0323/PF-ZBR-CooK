@@ -1,15 +1,61 @@
-<h3>マイページ</h3>
-<h5>登録情報</h5>
+<h3><%= @customer.name %>さんのマイページ</h3>
 
-<td><%= @customer.name %></td>
-    <td><%= link_to"フォロー数: #{@customer.followings.count}", customer_followings_path(@customer.id) %></td>
-    <td><%= link_to"フォロワー数: #{@customer.followers.count}",  customer_followers_path(@customer.id) %></td>
+<div class = "row pt-4">
+  <div class="col-md-9">
+    <div class="row">
+    <% @customer.recipes.each do |recipe| %>
+      <div class="card-group mb-3 col-4">
+        <div class="card border-secondary">
+        <%= attachment_image_tag recipe, :image, size: "100x230", class: "bd-placeholder-img card-img-top" %>
+          <div class="card-body">
+            <h5 class="card-title">
+              <%= link_to recipe.name, recipe_path(recipe.id) %><br>
+              <i class="far fa-heart"></i>
+              <%= "#{recipe.likes.count}"%>
+              <i class="far fa-comment-dots"></i>
+              <%= "#{recipe.comments.count}" %>
+            </h5>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    </div>
+  </div>
 
+  <div class="col-md-3">
+    <div class="card">
+      <div class="card-header text-center font-weight-bold">
+        User Info
+      </div>
+      <%= attachment_image_tag @customer, :image, size: "100x200", class: "bd-placeholder-img card-img-top" %>
+      <div class="card-body">
+        <h5 class="card-title ml-2">
+          <%= @customer.name %>
+        </h5>
+        <div class="text-center mb-2">
+          <%= render '/public/customers/info', customer: @customer %>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item follow">
+            <%= link_to"フォロワー: #{@customer.followers.count}",  customer_followers_path(@customer.id) %>
+          </li>
+          <li class="list-group-item follow">
+            <%= link_to"フォロー: #{@customer.followings.count}", customer_followings_path(@customer.id) %>
+          </li>
+          <li class="list-group-item">
+            <%= "レシピ数: #{@customer.recipes.count}" %>
+          </li>
+        </ul>
+        <p class="card-text">
+          <span class="badge badge-pill badge-info mb-2">Introduction</span><br>
+          <%= @customer.introduction %>
+        </p>
+        <% if @customer.id == current_customer.id %>
+         <%= link_to "", edit_customer_path, class: "btn btn-outline-secondary btn-block btn-lg fas fa-user-cog" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 
-<% @customer.recipes.each do |recipe| %>
- <h5>料理名</h5><p><%= recipe.name %></p>
-  <h5>IMAGE</h5><p><%= attachment_image_tag recipe, :image, size: "210x150" %></p>
-  <%= link_to "レシピ詳細を見る", recipe_path(recipe.id) %>
-<% end %>
+</div>
 
-<%= link_to "編集する", edit_customer_path %>

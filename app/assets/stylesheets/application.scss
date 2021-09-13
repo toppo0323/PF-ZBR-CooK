@@ -13,44 +13,49 @@
  *= require_tree .
  *= require_self
  */
+ @import "bootstrap";
+ @import 'font-awesome-sprockets';
+ @import 'font-awesome';
+
+
 
 *{
     margin:0;
     padding: 0;
     box-sizing: border-box;
+    text-decoration: none;
 }
 
 
 .page-header {
-   
-  background-color: #FFE4C4;
-  background-size: cover;
-  
-  
+
+
+
+
 
   li{
     list-style: none;
     margin-left: 30px;
     }
-  
+
   .box-anchor {
   text-decoration: none;
   }
 
   .box {
     color: #663300;
-    width: 75px;
+    width: 70px;
     text-align: center;
     border-radius: 10px;
     font-weight: bold;
-    font-size: 15px;
+    font-size: 14px;
   }
-  
+
   .box:hover {
     background-color: #D2B48C;
   }
 
-    
+
   li a{
     color: #432;
     text-decoration: none;
@@ -64,7 +69,7 @@
   .main-nav{
     display: flex;
     padding-top: 25px;
-   
+
   }
   .button {
   display       : inline-block;
@@ -90,7 +95,7 @@
 
 .wrapper{
     display: flex;
-   justify-content: space-between;
+  justify-content: space-between;
   // 両橋に設置
     max-width: 1700px;
     margin: 0 auto;
@@ -103,7 +108,24 @@
 }
 
 input[type="text"] {
-        width: 250px;
-        height: 30px;
-        
+  width: 250px;
+  height: 30px;
+
     }
+
+main{
+  background-color: #FAF0E6;
+  background-size: cover;
+}
+
+.container{
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 100px 4%;
+}
+
+a:link, a:visited, a:hover, a:active{
+  color: #220000;
+  text-decoration: none;
+}
+
