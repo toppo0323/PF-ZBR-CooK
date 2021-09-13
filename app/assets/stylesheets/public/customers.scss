@@ -1,3 +1,19 @@
 // Place all the styles related to the public/customers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.follow {
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all  0.3s ease;
+    }
+.follow:hover {
+    background-color: #17a2b8;
+    color: #FFFFFF;
+    }
+
+.far{
+    background-color: #FAF0E6;
+    color: #8B4513;
+}
