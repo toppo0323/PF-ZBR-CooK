@@ -13,44 +13,71 @@
  *= require_tree .
  *= require_self
  */
+ @import "bootstrap";
+ @import 'font-awesome-sprockets';
+ @import 'font-awesome';
+
+
 
 *{
     margin:0;
     padding: 0;
     box-sizing: border-box;
+    text-decoration: none;
+    font-family: Hannotate SC;
+}
+
+a:link, a:visited, a:hover, a:active{
+  color: #220000;
+  font-family: Hannotate SC;
+  text-decoration: none;
+}
+
+h2 {
+  position: relative;/*相対位置*/
+  padding-left: 1.5em;/*アイコン分のスペース*/
+  line-height: 1.4;/*行高*/
+  color: #330000;/*文字色*/
+  border-bottom: 1px solid #f0bdc4;
+}
+
+h2:before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f1b0";/*アイコンのユニコード*/
+  font-weight: 900;
+  position: absolute;/*絶対位置*/
+  font-size: 1em;/*サイズ*/
+  left: 0;/*アイコンの位置*/
+  top: 0;/*アイコンの位置*/
+  color: #ff938b; /*アイコン色*/
 }
 
 
 .page-header {
-   
-  background-color: #FFE4C4;
-  background-size: cover;
-  
-  
 
   li{
     list-style: none;
     margin-left: 30px;
     }
-  
+
   .box-anchor {
-  text-decoration: none;
+  　text-decoration: none;
   }
 
   .box {
     color: #663300;
-    width: 75px;
+    width: 70px;
     text-align: center;
     border-radius: 10px;
     font-weight: bold;
-    font-size: 15px;
+    font-size: 14px;
   }
-  
+
   .box:hover {
     background-color: #D2B48C;
   }
 
-    
+
   li a{
     color: #432;
     text-decoration: none;
@@ -64,7 +91,7 @@
   .main-nav{
     display: flex;
     padding-top: 25px;
-   
+
   }
   .button {
   display       : inline-block;
@@ -90,7 +117,7 @@
 
 .wrapper{
     display: flex;
-   justify-content: space-between;
+  justify-content: space-between;
   // 両橋に設置
     max-width: 1700px;
     margin: 0 auto;
@@ -98,12 +125,25 @@
   }
 
 .search{
-  display: flex;
+
   padding-top: 20px;
 }
 
 input[type="text"] {
-        width: 250px;
-        height: 30px;
-        
+  width: 250px;
+  height: 30px;
+
     }
+
+main{
+  
+  background-color: #FAF0E6;
+  background-size: cover;
+}
+
+.container{
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 70px 4%;
+}
+

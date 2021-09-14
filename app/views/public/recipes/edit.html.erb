@@ -18,6 +18,13 @@
   <%= f.label :作り方 %>
   <%= f.text_field :process, autofocus: true %>
 </div> 
+<h4>ジャンル</h4>
+   <%= f.collection_check_boxes(:genre_ids, Genre.all, :id, :name) do |genre| %>
+      <%= genre.label do %>
+        <%= genre.check_box %>
+        <%= genre.text %>
+      <% end %>
+   <% end %>
  <%= f.submit "編集内容を保存" %>
 
 <% end %>
