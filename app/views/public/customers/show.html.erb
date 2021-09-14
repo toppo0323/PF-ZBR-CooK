@@ -1,23 +1,29 @@
-<h3><%= @customer.name %>さんのマイページ</h3>
+<h2><%= @customer.name %>さんのマイページ</h2>
 
 <div class = "row pt-4">
   <div class="col-md-9">
     <div class="row">
     <% @customer.recipes.each do |recipe| %>
-      <div class="card-group mb-3 col-4">
-        <div class="card border-secondary">
-        <%= attachment_image_tag recipe, :image, size: "100x230", class: "bd-placeholder-img card-img-top" %>
-          <div class="card-body">
-            <h5 class="card-title">
-              <%= link_to recipe.name, recipe_path(recipe.id) %><br>
-              <i class="far fa-heart"></i>
-              <%= "#{recipe.likes.count}"%>
-              <i class="far fa-comment-dots"></i>
-              <%= "#{recipe.comments.count}" %>
-            </h5>
-          </div>
+     <div class="card-group mb-3 col-4">
+          <%= link_to recipe_path(recipe.id), { class: "w-100" } do%>
+            <div class="card">
+              <%= attachment_image_tag recipe, :image, size: "100x230", class: "bd-placeholder-img card-img-top" %>
+              <div class="card-body">
+                <div class="card-img-overlay ">
+                  <i class="far fa-heart">
+                  <%="#{recipe.likes.count}" %>
+                  </i>
+                  <i class="far fa-comment-dots">
+                  <%="#{recipe.comments.count}" %>
+                  </i>
+                </div>
+                <h5 class="card-title">
+                  <%= recipe.name %>
+                </h5>
+              </div>
+            </div>
+          <% end %>
         </div>
-      </div>
     <% end %>
     </div>
   </div>
@@ -51,7 +57,7 @@
           <%= @customer.introduction %>
         </p>
         <% if @customer.id == current_customer.id %>
-         <%= link_to "", edit_customer_path, class: "btn btn-outline-secondary btn-block btn-lg fa fa-user-cog" %>
+         <%= link_to "編集", edit_customer_path, class: "btn btn-outline-secondary btn-block btn-lg fas" %>
         <% end %>
       </div>
     </div>
