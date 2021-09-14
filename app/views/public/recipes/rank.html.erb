@@ -2,12 +2,12 @@
 
 <div class = "pt-4">
   <% @all_ranks.each.with_index(1) do |recipe, i| %>
-    <p> 第<%= i %>位</p>
+   <p class="fas fa-crown"><%= i %>位</p>
     <%= link_to recipe_path(recipe.id) do%>
-      <div class="card group mb-3" style="max-width: 540px;">
+      <div class="card group mb-3 ml-4" style="max-width: 540px;">
         <div class="row no-gutters">
           <div class="col-md-4">
-            <%= attachment_image_tag recipe, :image, size: "100x230", class: "bd-placeholder-img card-img-top" %>
+            <%= attachment_image_tag recipe, :image, size: "400x200", class: "bd-placeholder-img card-img-top" %>
           </div>
           <div class="col-md-8">
             <div class="card-body">

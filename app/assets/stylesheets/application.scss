@@ -133,12 +133,22 @@ input[type="text"] {
   width: 250px;
   height: 30px;
 
-    }
+}
+
+.header-b{
+  background-color: #663300;
+  color: #FFF;
+}
+
+.header-b p{
+  margin: 0;
+  padding: 8px;
+}
 
 main{
-  
   background-color: #FAF0E6;
-  background-size: cover;
+  height: 100%;
+  margin: 0 auto;
 }
 
 .container{
@@ -147,3 +157,12 @@ main{
   padding: 70px 4%;
 }
 
+.footer-b{
+  background-color: #663300;
+  color: #FFF;
+}
+
+.footer-b p{
+  margin: 0;
+  padding: 8px;
+}

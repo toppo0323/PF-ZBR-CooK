@@ -1,5 +1,13 @@
-<div class = "row">
+<h2 class = "mb-4">みんなのずぼらレシピ</h2>
 
+  <span class="new-recipe">
+    <i class="fas fa-plus"></i>
+    <%= link_to"レシピの新規登録", new_recipe_path %>
+    <i class="fa fa-utensils"></i>
+  </span>
+
+
+<div class = "row mt-5">
   <div class="col-9">
     <div class="row">
       <% @recipes.each do |recipe| %>
@@ -24,6 +32,7 @@
           <% end %>
         </div>
       <% end %>
+  <div class="pagination"><%= paginate(@recipes) %></div>
     </div>
   </div>
 

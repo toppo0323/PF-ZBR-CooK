@@ -4,5 +4,16 @@
 
 .genre{
     background-color: #FFC7AF;
-  
+}
+
+.new-recipe{
+    font-size: 1.2em;/* 文字の大きさ */
+    font-weight: bold;/* 文字の太さ */
+    color: #fff;/* 文字の色 */
+    border: 2px dashed #ffecef;/* ステッチの太さ・種類・カラー */
+    background: #FFC7AF;/* 背景色 */
+    border-radius: 8px;/* 四隅の丸み */
+    box-shadow: 0 0 3px 3px #F9B8CD;
+    margin: 10 0 1.5em;
+    padding: 0.5em 0.8em;
 }
