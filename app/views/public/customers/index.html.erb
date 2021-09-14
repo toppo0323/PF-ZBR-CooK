@@ -1,26 +1,33 @@
-<div class="col-md-8 offset-md-2">
-      <h3><span class="badge badge-pill badge-dark">会員一覧</span></h3>
-      <table class="table table-hover table-inverse">
-       <thead>
-        <tr class="bg-light">
-     
-          <th>氏名</th>
-         
-          <th></th>
-        </tr>
-      </thead>
-       <% @customers.each do |customer| %>
-      <tbody>
-       <tr>
-       
-        <td><%= customer.name %></td>
-       
-        <td><%= link_to "レシピ", recipelist_customer_path(customer.id) %><td>
-        <td><%= link_to"フォロー数: #{customer.followings.count}", customer_followings_path(customer.id) %></td>
-        <td><%= link_to"フォロワー数: #{customer.followers.count}",  customer_followers_path(customer.id) %></td>
-
-      </tbody>
-      <% end %>
-      </table>
-      
+<h2>ずぼら仲間</h2>
+<div class="row mt-5">
+  <% @customers.each do |customer| %>
+    <div class="card-group mb-3 col-3">
+      <div class="card">
+        <%= attachment_image_tag customer, :image, size: "100x200", class: "bd-placeholder-img card-img-top" %>
+        <div class="card-body">
+          <h5 class="card-title ml-2">
+            <%= customer.name %>
+          </h5>
+          <div class="text-center mb-2">
+            <%= render '/public/customers/info', customer: customer %>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item follow">
+              <%= link_to "フォロワー: #{customer.followers.count}", customer_followers_path(customer.id) %>
+            </li>
+            <li class="list-group-item follow">
+              <%= link_to "フォロー: #{customer.followings.count}", customer_followings_path(customer.id) %>
+            </li>
+            <li class="list-group-item follow">
+              <%= link_to "レシピ数: #{customer.recipes.count}", recipelist_customer_path(customer.id) %>
+            </li>
+          </ul>
+          <p class="card-text">
+            <span class="badge badge-pill badge-info mb-2">Introduction</span><br>
+            <%= customer.introduction %>
+          </p>
+        </div>
+      </div>
     </div>
+  <% end %>
+</div>
