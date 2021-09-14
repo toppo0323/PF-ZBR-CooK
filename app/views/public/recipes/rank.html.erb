@@ -1,6 +1,41 @@
-<h4>ランキング</h4>
-<p><% @all_ranks.each.with_index(1) do |recipe, i| %>
-      第<%= i %>位
- <%= link_to recipe.name, recipe_path(recipe.id) %>
-</p>
-<% end %>
+<h2>ランキング</h2>
+
+<div class = "pt-4">
+  <% @all_ranks.each.with_index(1) do |recipe, i| %>
+    <p> 第<%= i %>位</p>
+    <%= link_to recipe_path(recipe.id) do%>
+      <div class="card group mb-3" style="max-width: 540px;">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <%= attachment_image_tag recipe, :image, size: "100x230", class: "bd-placeholder-img card-img-top" %>
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">
+                <%= recipe.name %>
+              </h5>
+              <p class="card-text">
+                <% recipe.genres.each do |genre| %>
+                  <span class="genre"><%= genre.name %></span>
+                <% end %>
+              </p>
+              <p class="card-text">
+                <i class="far fa-heart">
+                <%="#{recipe.likes.count}" %>
+                </i>
+                <i class="far fa-comment-dots">
+                  <%="#{recipe.comments.count}" %>
+                </i>
+              </p>
+              <p class="card-text text-right mr-4">
+                <%= attachment_image_tag recipe.customer, :image, class: "rounded-circle", size: "40x40" %>
+                <%= recipe.customer.name %>
+              </p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
