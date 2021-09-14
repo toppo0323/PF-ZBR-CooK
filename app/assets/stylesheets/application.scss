@@ -24,14 +24,36 @@
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
+    font-family: Hannotate SC;
+}
+
+a:link, a:visited, a:hover, a:active{
+  color: #220000;
+  font-family: Hannotate SC;
+  text-decoration: none;
+}
+
+h2 {
+  position: relative;/*相対位置*/
+  padding-left: 1.5em;/*アイコン分のスペース*/
+  line-height: 1.4;/*行高*/
+  color: #330000;/*文字色*/
+  border-bottom: 1px solid #f0bdc4;
+}
+
+h2:before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f1b0";/*アイコンのユニコード*/
+  font-weight: 900;
+  position: absolute;/*絶対位置*/
+  font-size: 1em;/*サイズ*/
+  left: 0;/*アイコンの位置*/
+  top: 0;/*アイコンの位置*/
+  color: #ff938b; /*アイコン色*/
 }
 
 
 .page-header {
-
-
-
-
 
   li{
     list-style: none;
@@ -39,7 +61,7 @@
     }
 
   .box-anchor {
-  text-decoration: none;
+  　text-decoration: none;
   }
 
   .box {
@@ -103,7 +125,7 @@
   }
 
 .search{
-  display: flex;
+
   padding-top: 20px;
 }
 
@@ -114,6 +136,7 @@ input[type="text"] {
     }
 
 main{
+  
   background-color: #FAF0E6;
   background-size: cover;
 }
@@ -121,11 +144,6 @@ main{
 .container{
   max-width: 1300px;
   margin: 0 auto;
-  padding: 100px 4%;
-}
-
-a:link, a:visited, a:hover, a:active{
-  color: #220000;
-  text-decoration: none;
+  padding: 70px 4%;
 }
 
