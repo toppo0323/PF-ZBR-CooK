@@ -12,12 +12,12 @@
 </div>
 <div class="form-inline row mb-3 text-right">
   <%= f.label :材料 %>
-  <%= f.text_field :ingredient, autofocus: true %>
+  <%= f.text_area :ingredient, autofocus: true, class: "text-a" %>
 </div>
 <div class="form-inline row mb-3 text-right">
   <%= f.label :作り方 %>
-  <%= f.text_field :process, autofocus: true %>
-</div> 
+  <%= f.text_area :process, autofocus: true, class: "text-a"  %>
+</div>
 <h4>ジャンル</h4>
    <%= f.collection_check_boxes(:genre_ids, Genre.all, :id, :name) do |genre| %>
       <%= genre.label do %>
