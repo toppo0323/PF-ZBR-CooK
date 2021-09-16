@@ -43,5 +43,3 @@ https://docs.google.com/spreadsheets/d/1ks03mdRbwzQTORNZpOAkXXonfofe_fs5Pvk2s3JD
 - JSライブラリ：jQuery
 - IDE：Cloud9
 
-## 使用素材
-- 「ぱくたそ」　　https://www.pakutaso.com/
