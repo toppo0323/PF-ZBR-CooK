@@ -1,24 +1,33 @@
+<div class='row'>
+  <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+    <h2>レシピ編集（管理者）</h2>
+    <!--url: admin_recipe_path(@recipe.id)とすることで遷移先が変わる、デフォルトはpublic-->
+    <%= form_with model: @recipe,url: admin_recipe_path(@recipe.id), local: true do |f| %>
 
-<h1>レシピ編集（管理者）</h1>
-<!--url: admin_recipe_path(@recipe.id)とすることで遷移先が変わる、デフォルトはpublic-->
-<%= form_with model: @recipe,url: admin_recipe_path(@recipe.id), local: true do |f| %>
-
-<div class="form-inline row mb-3 text-right">
-  <%= f.label :料理名 %>
-  <%= f.text_field :name, autofocus: true %>
+      <div class="form-group">
+        <%= f.label :料理名 %>
+        <%= f.text_field :name, autofocus: true, class: "form-control name" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :image, "画像" %>
+        <%= f.attachment_field :image, autofocus: true, class: "form-control-file image" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :材料 %>
+        <%= f.text_area :ingredient, autofocus: true, size: "20x10", class: "form-control ingredient" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :作り方 %>
+        <%= f.text_area :process, autofocus: true, size: "20x20", class: "form-control process" %>
+      </div>
+      <p>ジャンル</p>
+         <%= f.collection_check_boxes(:genre_ids, Genre.all, :id, :name) do |genre| %>
+            <%= genre.label do %>
+              <%= genre.check_box %>
+              <%= genre.text %>
+            <% end %>
+         <% end %>
+       <%= f.submit "編集内容を保存", class: 'btn btn-secondary mt-3' %>
+    <% end %>
+  </div>
 </div>
-<div class="form-inline row mb-3 text-right">
-  <%= f.label :image, "画像" %>
-  <%= f.attachment_field :image %>
-</div>
-<div class="form-inline row mb-3 text-right">
-  <%= f.label :材料 %>
-  <%= f.text_field :ingredient, autofocus: true %>
-</div>
-<div class="form-inline row mb-3 text-right">
-  <%= f.label :作り方 %>
-  <%= f.text_field :process, autofocus: true %>
-</div> 
- <%= f.submit "編集内容を保存" %>
-
-<% end %>

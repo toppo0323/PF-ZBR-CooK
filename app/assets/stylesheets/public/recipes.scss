@@ -24,13 +24,19 @@
     height: 400px;
 }
 
-.like p{
-    border-radius: 30px;
-    text-align: center;
-    background-color: #FF97C2;
-    font-size: 30px;
-}
-
 .recipeback{
     background-color: #FFF;
+    margin-bottom: 20px;
+}
+
+.comment-form{
+    background-color: #FFF;
+}
+
+.comment-index{
+    display: block;
+}
+
+.ingredient,.process{
+    
 }
