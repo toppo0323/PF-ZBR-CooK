@@ -1,38 +1,57 @@
 <h2>レシピ詳細</h2>
-
-  <p>料理名：<%= @recipe.name %></p>
-  <%= attachment_image_tag @recipe, :image %>
-  <p>材料：<%= @recipe.ingredient %></p>
-  <p>作り方：<%= @recipe.process %></p>
-  <p>ジャンル：
-      <% @recipe.genres.each do |genre| %>
-      <%= genre.name %>
-      <% end %>
-  </p>
-  <p>投稿日時：<%= @recipe.created_at.strftime('%Y/%m/%d') %></p>
-
-  <!--いいね機能記述（非同期通信）-->
-
-   <div id="likes_buttons_<%= @recipe.id %>">
-       <%= render "public/likes/like", recipe: @recipe %>
-
-   </div>
-
-   <% if @recipe.customer == current_customer %>
-    <%= link_to 'Edit', edit_recipe_path(@recipe) %>
-    <%= link_to "Destroy", recipe_path(@recipe), method: :delete %>
-  <% end %>
-
-
-    <div class="comment">
-     <%= render partial: "public/comments/comment", locals: { recipes: @recipe }%>
+<div class="recipeback p-4">
+  <div class="row mt-4 mb-3">
+    <h3 class="col-9 font-weight-bold">◯⚪︎<%= @recipe.name %>⚪︎◯</h3>
+    <!--いいね機能記述（非同期通信）-->
+    <div class="col-1 like" id="likes_buttons_<%= @recipe.id %>">
+      <%= render "public/likes/like", recipe: @recipe %>
     </div>
+    <p class="col-2">投稿日時<br>　<%= @recipe.created_at.strftime('%Y/%m/%d') %></p>
+  </div>
 
-<div class="new-comment">
-<%= form_with(model:[@recipe, @comment], id: "new-comment") do |f| %>
-  <%= f.text_field :comment, rows:'5',placeholder: "コメントをここに", class:"inputComment" %>
-  <%= f.submit "送信する" %>
-<% end %>
+  <div class="row ">
+    <div class="col-7">
+      <%= attachment_image_tag @recipe, :image, size: "650x500"%>
+    </div>
+    <div class="col-4 pl-5">
+      <h5 class="mt-4 font-weight-bold">=材料=</h5>
+      <!--split("\n"),tag(:br)と入れることで改行と空白を反映-->
+      <p><%=safe_join(@recipe.ingredient.split("\n"),tag(:br))%></p>
+    </div>
+  </div>
+
+  <h5 class="mt-4 font-weight-bold">=作り方=</h5>
+    <p><%=safe_join(@recipe.process.split("\n"),tag(:br))%></p>
+  <h5 class="mt-4 font-weight-bold">=ジャンル=</h5>
+    <p>
+      <% @recipe.genres.each do |genre| %>
+        <span class="genre"><%= genre.name %></span>
+      <% end %>
+    </p>
+    <div class="text-right mr-5">
+      <% if @recipe.customer == current_customer %>
+        <%= link_to '編集', edit_recipe_path(@recipe), class: "btn btn-outline-primary"%>
+        <%= link_to "削除", recipe_path(@recipe), method: :delete, class: "btn btn-outline-danger" %>
+      <% else %>
+      <p>レシピ作成者</p>
+        <%= link_to recipelist_customer_path(@recipe.customer.id) do %>
+        <%= attachment_image_tag @recipe.customer, :image, class: "rounded-circle", size: "40x40" %>
+        <%= @recipe.customer.name %>
+        <% end %>
+      <% end %>
+  </div>
 </div>
 
-<%= link_to "レシピ一覧に戻る", recipes_path %>
+<div class="comment-form p-3">
+  <div class="comment">
+    <%= render partial: "public/comments/comment", locals: { recipes: @recipe }%>
+  </div>
+  <div class="new-comment">
+    <%= form_with(model:[@recipe, @comment], id: "new-comment") do |f| %>
+    <%= f.text_field :comment, rows:'5',placeholder: "コメントをここに", class:"inputComment" %>
+    <%= f.submit "送信する" %>
+    <% end %>
+  </div>
+</div>
+
+<%= link_to "レシピ一覧に戻る", recipes_path, class: "btn btn-outline-info mt-5" %>

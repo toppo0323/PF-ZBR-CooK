@@ -6,7 +6,6 @@ class Public::CommentsController < ApplicationController
     @comment = @recipe.comments.build(comment_params)
     @comment.customer_id = current_customer.id
     @comment.save
-
   end
 
   def destroy

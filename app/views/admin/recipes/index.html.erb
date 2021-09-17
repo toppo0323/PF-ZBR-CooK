@@ -1,14 +1,35 @@
-<h3>レシピ（管理者）</h3>
+<% if admin_signed_in? %>
+<h2>レシピ（管理者）</h2>
 
-<% @recipes.each do |recipe| %>
-
-<div>
-
-  <h5>料理名</h5><p><%= recipe.name %></p>
-  <h5>IMAGE</h5><p><%= attachment_image_tag recipe, :image, size: "210x150" %></p>
-  <%= link_to "レシピ詳細を見る", admin_recipe_path(recipe.id) %>
-  <p><%= link_to "#{recipe.comments.count} コメント", admin_recipe_path(recipe.id) %></p>
-
+<div class = "row mt-5">
+  <div class="col-12">
+    <div class="row">
+      <% @recipes.each do |recipe| %>
+        <div class="card-group mb-3 col-3">
+          <%= link_to admin_recipe_path(recipe.id), { class: "w-100" } do%>
+            <div class="card">
+              <%= attachment_image_tag recipe, :image, size: "100x230", class: "bd-placeholder-img card-img-top" %>
+              <div class="card-body">
+                <div class="card-img-overlay ">
+                  <i class="far fa-heart">
+                  <%="#{recipe.likes.count}" %>
+                  </i>
+                  <i class="far fa-comment-dots">
+                  <%="#{recipe.comments.count}" %>
+                  </i>
+                </div>
+                <h5 class="card-title">
+                  <%= recipe.name %>
+                </h5>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
-
+  
+<% else %>
+  管理者専用ページです。閲覧するにログインが必要です。
 <% end %>
