@@ -23,4 +23,9 @@ class Recipe < ApplicationRecord
     likes.where(customer_id: customer.id).exists?
   end
 
+  validates :name, presence: true
+  validates :ingredient, presence: true
+  validates :process, presence: true
+  validates :image, presence: true
+  
 end

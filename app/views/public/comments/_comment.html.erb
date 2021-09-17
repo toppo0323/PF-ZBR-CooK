@@ -1,15 +1,24 @@
 <div class = "comments">
+   <h5 class="border-bottom font-weight-bold">
+     -レシピへのコメントや感想はこちらに！-
+     コメント数:<%= @recipe.comments.count %>
+    </h5>
   
-   <h5>コメント一覧:<%= @recipe.comments.count %></h5>
    <% @recipe.comments.each do |comment| %>
-     <%#= image_tag('no_image.jpg')%>
+   <div class="comment-index py-2">
+     <%= link_to recipelist_customer_path(comment.customer.id) do %>
+     <%= attachment_image_tag comment.customer, :image, class: "rounded-circle", size: "40x40" %>
+     <% end %>
      <%= comment.customer.name %>
+     「<%= comment.comment %>」
      <%= comment.created_at.strftime('%Y/%m/%d') %>
-     <%= comment.comment %>
     <% if comment.customer == current_customer %>
-     <div class="comment-delete">
-       <%= link_to "destroy", recipe_comment_path(comment.recipe,comment), method: :delete, remote: true %>
-     </div>
+       <%= link_to recipe_comment_path(comment.recipe,comment), method: :delete, remote: true do %>
+       <i class="fas fa-trash-alt"></i>
+       <% end %>
     <% end %>
+    </div>
    <% end %>
+   
+   
   </div>

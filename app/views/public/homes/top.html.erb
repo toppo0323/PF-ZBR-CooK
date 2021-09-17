@@ -1,2 +1,21 @@
-<h1>ZBRCOOK</h1>
-<p>topページだあよ</p>
+<div class="top-text text-center">
+  <h1>　ずぼらごはんへようこそ！　</h1>
+  <p>下のボタンをクリックしてあなたにもよい”ずぼらLIFE”を！</p>
+</div>
+<div class="top-btn">
+  <% if customer_signed_in? %>
+    <%=link_to "ずぼられしぴをみる", recipes_path, class: "btn btn-info" %>
+    <%=link_to "マイページへいく", customer_path(current_customer), class: "btn btn-info" %>
+  <% else %>
+    <%=link_to "ずぼられしぴをみる", recipes_path, class: "btn btn-info" %>
+    <%=link_to "ログインする", new_customer_session_path, class: "btn btn-info" %>
+    <%=link_to "ずぼらなかまになる", new_customer_registration_path, class: "btn btn-info" %>
+  <% end %>
+</div>
+
+<div class="a">
+    <div class="b"><img class="c" src="assets/image1.jpg"></div>
+    <div class="b"><img class="c" src="assets/image2.jpg"></div>
+    <div class="b"><img class="c" src="assets/image3.jpg"></div>
+</div>
+

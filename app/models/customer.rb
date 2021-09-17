@@ -27,4 +27,5 @@ class Customer < ApplicationRecord
    followings.include?(customer)
  end
  
+ 
 end
