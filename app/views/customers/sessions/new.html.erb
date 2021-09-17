@@ -29,4 +29,4 @@
       <h5 class: " col-sm-3 " >会員登録がお済みでない方</h5>
       <p class="col-sm-9">　<%= link_to "こちら",customer_registration_path, class: "btn btn-outline-info" %>  　から登録してください。</p>
     </div>
-<%= link_to "Forgot your password?", new_password_path(resource_name) %>
+<%= render "customers/shared/links" %>

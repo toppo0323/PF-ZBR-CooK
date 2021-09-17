@@ -1,3 +1,43 @@
 // Place all the styles related to the homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.c{
+  height: 700px;
+  width : 100%;
+}
+
+.slick-dots {
+  li {
+    font-size: 20px !important;
+    button:before {
+      content: "⚪︎" !important;
+      font-size: 14px !important;
+      color: rgb(60, 60, 60) !important;
+    }
+  }
+}
+
+.a{
+  position: relative;
+}
+
+.top-text{
+  position: absolute;
+  top: 60%;left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  z-index: 150;
+  color: #fff;
+  background-color: rgba(240,189,196,0.85);
+}
+
+.top-btn{
+  position: absolute;
+  top: 70%;left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  z-index: 150;
+}

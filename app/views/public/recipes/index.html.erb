@@ -8,10 +8,10 @@
 
 
 <div class = "row mt-5">
-  <div class="col-9">
+  <div class="col-xl-9 col-md-12">
     <div class="row">
       <% @recipes.each do |recipe| %>
-        <div class="card-group mb-3 col-4">
+        <div class="card-group mb-3 col-xl-4 col-md-6 col-sm-10">
           <%= link_to recipe_path(recipe.id), { class: "w-100" } do%>
             <div class="card">
               <%= attachment_image_tag recipe, :image, size: "100x230", class: "bd-placeholder-img card-img-top" %>
