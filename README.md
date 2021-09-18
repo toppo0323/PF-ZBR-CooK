@@ -22,7 +22,8 @@
 - 料理が苦手な人
 
 ### 主な利用シーン
-食事を作るとき
+-食事を作るとき
+-自分の作ったレシピを他の人に教えたいとき
 
 ## 設計書
 ER図は[こちら](https://drive.google.com/file/d/1mbXZhi95A6SxY7D9HZIhqUfY2Xstbf6z/view?usp=sharing)
