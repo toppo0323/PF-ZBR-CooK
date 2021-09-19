@@ -26,8 +26,8 @@
       <% end %>
     </p>
     <div class="text-right mr-5">
-        <%= link_to '編集', edit_recipe_path(@recipe), class: "btn btn-outline-primary"%>
-        <%= link_to "削除", recipe_path(@recipe), method: :delete, class: "btn btn-outline-danger" %>
+        <%= link_to '編集', edit_admin_recipe_path(@recipe), class: "btn btn-outline-primary"%>
+        <%= link_to "削除", admin_recipe_path(@recipe), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-outline-danger" %>
       <p>レシピ作成者</p>
         <%= link_to admin_customer_path(@recipe.customer.id) do %>
         <%= attachment_image_tag @recipe.customer, :image, class: "rounded-circle", size: "40x40" %>
