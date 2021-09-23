@@ -28,10 +28,13 @@
        <%= yield %>
       </div>
     </main>
-    
+
     <footer>
       <div class="footer-b">
-      <p class="text-center">
+        <div class="text right text-white">
+          <%= link_to "お問い合わせ", inquiry_path, class: "text right text-white pl-5 mt-2"%>
+        </div>
+       <p class="text-center">
         ＠portfolio~2021.08~
       </p>
     </footer>

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  
 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
 
@@ -15,6 +16,10 @@ devise_for :admins, controllers: {
   registrations: 'admins/registrations'
 }
 
+#お問い合わせ機能ルーティング
+get "inquiry" => 'inquiry#index'
+post 'inquiry/confirm' => "inquiry#confirm"
+post 'inquiry/thanks' => "inquiry#thanks"
 
 #管理者側ルーティング
 
