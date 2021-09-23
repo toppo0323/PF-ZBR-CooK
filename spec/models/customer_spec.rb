@@ -6,7 +6,7 @@ RSpec.describe Customer, type: :model do
     let!(:other_customer) { create(:customer) }
     let(:customer) { build(:customer) }
 
-  　context 'nameカラム' do
+   context 'nameカラム' do
      it "空欄でないこと" do
       customer.name = ' '
       is_expected.to eq false
