@@ -3,7 +3,7 @@ class Customer < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-         
+
  has_many :recipes,dependent: :destroy
  has_many :comments,dependent: :destroy
  has_many :likes,dependent: :destroy
@@ -12,11 +12,11 @@ class Customer < ApplicationRecord
  has_many :follow_relationships, class_name: "FollowRelationship", foreign_key: "follower_id", dependent: :destroy
  has_many :followings, through: :follow_relationships, source: :followed
  attachment :image
- 
+
  def recipes
    return Recipe.where(customer_id: self.id)
  end
- 
+
  def follow(customer_id)
    follow_relationships.create(followed_id: customer_id)
  end
@@ -26,6 +26,8 @@ class Customer < ApplicationRecord
  def following?(customer)
    followings.include?(customer)
  end
- 
+
+ validates :name, uniqueness: true,presence: true,length: { minimum: 2, maximum: 20}
+ validates :introduction,length: { maximum: 50}
  
 end
