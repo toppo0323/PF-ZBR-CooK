@@ -20,14 +20,16 @@
 //= require turbolinks
 //= require_tree .
 
-$(function() {
-    $('.a').slick({
-        dots: true,
-        autoplay: true,
-        autoplaySpeed: 3000,
+$(document).on('turbolinks:load', function() {
+    $(function() {
+        $('.a').slick({
+            dots: true,
+            autoplay: true,
+            autoplaySpeed: 3000,
+        });
+    
+        $('.slick-dots li').on('mouseover', function() {
+        $('.a').slick('goTo', $(this).index());
+      });
     });
-
-    $('.slick-dots li').on('mouseover', function() {
-    $('.a').slick('goTo', $(this).index());
-  });
 });
