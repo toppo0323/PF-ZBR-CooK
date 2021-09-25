@@ -27,6 +27,7 @@
     font-family: Hannotate SC;
 }
 
+
 a:link, a:visited, a:hover, a:active{
   color: #220000;
   font-family: Hannotate SC;
@@ -149,6 +150,8 @@ main{
   background-color: #FAF0E6;
   height: 100%;
   margin: 0 auto;
+  position: relative;
+  min-height: 100vh;
 }
 
 .container{
@@ -157,14 +160,20 @@ main{
   padding: 70px 4%;
 }
 
-.footer-b{
+footer{
+  position: fixed;/*←絶対位置*/
+  bottom: 0; /*下に固定*/
+  width: 100%;
   background-color: #663300;
   color: #FFF;
 }
 
-.footer-b p{
-  margin: 0;
-  padding: 8px;
+footer p{
+  margin-bottom: 0;
+}
+
+footer .inquiry{
+  padding-top: 5px;
 }
 
 .likebtn{
