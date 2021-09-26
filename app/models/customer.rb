@@ -5,7 +5,7 @@ class Customer < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
  has_many :recipes,dependent: :destroy
- has_many :comments,dependent: :destroy
+ has_many :comments,dependent: :destroy#
  has_many :likes,dependent: :destroy
  has_many :reverse_of_follow_relationships, class_name: "FollowRelationship", foreign_key: "followed_id", dependent: :destroy
  has_many :followers, through: :reverse_of_follow_relationships, source: :follower
