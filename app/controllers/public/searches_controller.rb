@@ -1,4 +1,5 @@
 class Public::SearchesController < ApplicationController
+before_action :authenticate_customer!, except: [:search]
 
   def search
     if params["genre"]

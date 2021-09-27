@@ -1,0 +1,27 @@
+<h2>いいねしたレシピ</h2>
+
+    <div class="row">
+    <% @like_recipes.each do |recipe| %>
+      <div class="card-group mb-3 col-3">
+        <%= link_to recipe_path(recipe.id), { class: "w-100" } do %>
+          <div class="card border-secondary">
+          <%= attachment_image_tag recipe, :image, size: "100x230", class: "bd-placeholder-img card-img-top" %>
+            <div class="card-body">
+              <div class="card-img-overlay ">
+                <i class="far fa-heart">
+                <%="#{recipe.likes.count}" %>
+                </i>
+                <i class="far fa-comment-dots">
+                <%="#{recipe.comments.count}" %>
+                </i>
+              </div>
+              <h5 class="card-title">
+                <%= recipe.name %><br>
+              </h5>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+    </div>
+  </div>

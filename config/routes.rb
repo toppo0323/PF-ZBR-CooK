@@ -45,6 +45,7 @@ scope module: :public do
         get 'followers' => 'follow_relationships#followers', as: 'followers'
         member do
             get 'recipelist'
+            get :likes
         end    
     end
     resources :recipes do

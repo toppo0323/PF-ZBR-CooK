@@ -1,9 +1,10 @@
 <h2>ずぼら仲間</h2>
+<%#if @recipes != nil %>
 <div class="row mt-5">
   <% @customers.each do |customer| %>
     <div class="card-group mb-3 col-3">
       <div class="card">
-        <%= attachment_image_tag customer, :image, size: "100x200", class: "bd-placeholder-img card-img-top" %>
+        <%= attachment_image_tag customer, :image, fallback: "no_image.jpg",format: 'no_image.jpg', size: "100x200", class: "bd-placeholder-img card-img-top" %>
         <div class="card-body">
           <h5 class="card-title ml-2">
             <%= customer.name %>
@@ -31,3 +32,4 @@
     </div>
   <% end %>
 </div>
+<%# end %>

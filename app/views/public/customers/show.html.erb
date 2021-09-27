@@ -33,7 +33,7 @@
       <div class="card-header text-center font-weight-bold">
         User Info
       </div>
-      <%= attachment_image_tag @customer, :image, size: "100x200", class: "bd-placeholder-img card-img-top" %>
+      <%= attachment_image_tag @customer, :image, fallback: "no_image.jpg",format: 'no_image.jpg', size: "100x200", class: "bd-placeholder-img card-img-top" %>
       <div class="card-body">
         <h5 class="card-title ml-2">
           <%= @customer.name %>
@@ -47,6 +47,9 @@
           </li>
           <li class="list-group-item follow">
             <%= link_to"フォロー: #{@customer.followings.count}", customer_followings_path(@customer.id) %>
+          </li>
+          <li class="list-group-item follow">
+            <%= link_to"いいねしたレシピ", likes_customer_path(@customer.id) %>
           </li>
           <li class="list-group-item">
             <%= "レシピ数: #{@customer.recipes.count}" %>
