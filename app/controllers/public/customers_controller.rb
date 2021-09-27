@@ -25,6 +25,14 @@ class Public::CustomersController < ApplicationController
     #binding.pry
   end
 
+  def likes
+    @customer = Customer.find_by(id: params[:id])
+      likes = Like.where(customer_id: @customer.id).pluck(:recipe_id)
+    @like_recipes = Recipe.find(likes)
+    # @like_recipes = Kaminari.paginate_array(@recipes).page(params[:page]).per(10)
+    # いいね一覧のページネーションをしたかったが”undefined method `[]' for nil:NilClass”　のエラー
+  end
+
 
   private
 
