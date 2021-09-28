@@ -33,7 +33,7 @@ ER図は[こちら](https://drive.google.com/file/d/1mbXZhi95A6SxY7D9HZIhqUfY2Xs
 テーブル提議書は[こちら](https://docs.google.com/spreadsheets/d/1fyC5lmLXJYVmVO4jbr6n-fIwfALSmuHqzQwMvV9jzNE/edit?usp=sharing)
 
 ## チャレンジ要素一覧
-https://docs.google.com/spreadsheets/d/1ks03mdRbwzQTORNZpOAkXXonfofe_fs5Pvk2s3JDFE8/edit?usp=sharing
+ https://docs.google.com/spreadsheets/d/1ks03mdRbwzQTORNZpOAkXXonfofe_fs5Pvk2s3JDFE8/edit?usp=sharing
 
 
 
