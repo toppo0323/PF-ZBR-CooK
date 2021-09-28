@@ -1,43 +1,42 @@
 <% if admin_signed_in? %>
-<h2>レシピ詳細(管理者)</h2>
-<div class="recipeback p-4">
-  <div class="row mt-4 mb-3">
-    <h3 class="col-9 font-weight-bold">◯⚪︎<%= @recipe.name %>⚪︎◯</h3>
-    <p class="col-2">投稿日時<br>　<%= @recipe.created_at.strftime('%Y/%m/%d') %></p>
-  </div>
-
-  <div class="row ">
-    <div class="col-7">
-      <%= attachment_image_tag @recipe, :image, size: "650x500"%>
+  <h2>レシピ詳細(管理者)</h2>
+  <div class="recipeback p-4">
+    <div class="row mt-4 mb-3">
+      <h3 class="col-9 font-weight-bold">◯⚪︎<%= @recipe.name %>⚪︎◯</h3>
+      <p class="col-2">投稿日時<br>　<%= @recipe.created_at.strftime('%Y/%m/%d') %></p>
     </div>
-    <div class="col-4 pl-5">
-      <h5 class="mt-4 font-weight-bold">=材料=</h5>
-      <!--split("\n"),tag(:br)と入れることで改行と空白を反映-->
-      <p><%=safe_join(@recipe.ingredient.split("\n"),tag(:br))%></p>
+  
+    <div class="row ">
+      <div class="col-7">
+        <%= attachment_image_tag @recipe, :image, size: "650x500"%>
+      </div>
+      <div class="col-4 pl-5">
+        <h5 class="mt-4 font-weight-bold">=材料=</h5>
+        <!--split("\n"),tag(:br)と入れることで改行と空白を反映-->
+        <p><%=safe_join(@recipe.ingredient.split("\n"),tag(:br))%></p>
+      </div>
     </div>
-  </div>
-
-  <h5 class="mt-4 font-weight-bold">=作り方=</h5>
-    <p><%=safe_join(@recipe.process.split("\n"),tag(:br))%></p>
-  <h5 class="mt-4 font-weight-bold">=ジャンル=</h5>
-    <p>
-      <% @recipe.genres.each do |genre| %>
-        <span class="genre"><%= genre.name %></span>
-      <% end %>
-    </p>
-    <div class="text-right mr-5">
-        <%= link_to '編集', edit_admin_recipe_path(@recipe), class: "btn btn-outline-primary"%>
-        <%= link_to "削除", admin_recipe_path(@recipe), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-outline-danger" %>
-      <p>レシピ作成者</p>
-        <%= link_to admin_customer_path(@recipe.customer.id) do %>
-        <%= attachment_image_tag @recipe.customer, :image, class: "rounded-circle", size: "40x40" %>
-        <%= @recipe.customer.name %>
+  
+    <h5 class="mt-4 font-weight-bold">=作り方=</h5>
+      <p><%=safe_join(@recipe.process.split("\n"),tag(:br))%></p>
+    <h5 class="mt-4 font-weight-bold">=ジャンル=</h5>
+      <p>
+        <% @recipe.genres.each do |genre| %>
+          <span class="genre"><%= genre.name %></span>
         <% end %>
-
-    </div>
-</div>
-
-<%= link_to "レシピ一覧に戻る", admin_recipes_path, class: "btn btn-outline-info mt-5" %>
+      </p>
+      <div class="text-right mr-5">
+          <%= link_to '編集', edit_admin_recipe_path(@recipe), class: "btn btn-outline-primary"%>
+          <%= link_to "削除", admin_recipe_path(@recipe), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-outline-danger" %>
+        <p>レシピ作成者</p>
+          <%= link_to admin_customer_path(@recipe.customer.id) do %>
+            <%= attachment_image_tag @recipe.customer, :image, class: "rounded-circle", size: "40x40" %>
+            <%= @recipe.customer.name %>
+          <% end %>
+      </div>
+  </div>
+  
+  <%= link_to "レシピ一覧に戻る", admin_recipes_path, class: "btn btn-outline-info mt-5" %>
 
 <% else %>
   管理者専用ページです。閲覧するにログインが必要です。

@@ -1,16 +1,15 @@
 <% if admin_signed_in? %>
 
   <%= form_for @genre, url: admin_genre_path, local: true do |f| %>
-  <h2>ジャンル編集</h2>
-    <table class="table">
-      <tr>
-        <th>ジャンル名</th>
-        <th><%= f.text_field :name %></th>
-        <th><%= f.submit '変更を保存' ,class:"btn btn-success"%></th>
-      </tr>
-    </table>
-
-<% end %>
+    <h2>ジャンル編集</h2>
+      <table class="table">
+        <tr>
+          <th>ジャンル名</th>
+          <th><%= f.text_field :name %></th>
+          <th><%= f.submit '変更を保存' ,class:"btn btn-success"%></th>
+        </tr>
+      </table>
+  <% end %>
 
 <% else %>
   管理者専用ページです。閲覧するにログインが必要です。

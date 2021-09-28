@@ -10,13 +10,12 @@
   
   <table class="table mt-4">
     <% @genres.each do |genre| %>
-        <tbody>
-         <tr>
-          <td><%= genre.name %></td>
-          <td><%= link_to "編集する", edit_admin_genre_path(genre),class:"btn btn-success" %></td>
-         </tr>
-        </tbody>
-  
+      <tbody>
+       <tr>
+        <td><%= genre.name %></td>
+        <td><%= link_to "編集する", edit_admin_genre_path(genre),class:"btn btn-success" %></td>
+       </tr>
+      </tbody>
     <% end %>
   </table>
     

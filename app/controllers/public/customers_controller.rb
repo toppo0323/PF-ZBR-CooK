@@ -3,7 +3,8 @@ class Public::CustomersController < ApplicationController
   before_action :authenticate_customer!, except: [:contact]
 
   def index
-    @customers = Customer.all.page(params[:page]).per(10)
+    @customers =  Customer.joins(:recipes).group("recipes.customer_id").page(params[:page]).per(10)
+    # 二つのテーブルをくっつけるjoins
   end
 
   def show

@@ -1,15 +1,13 @@
-
-
 <% if customer_signed_in? &&  @recipe.liked_by?(current_customer) %>
-    <p>
-      <%= link_to recipe_likes_path(@recipe), method: :delete, remote: true, data: {"turbolinks" => false} do %>
-        <span class="likebtn" >♥</span><%= @recipe.likes.count %>
-      <% end %>
-    </p>
-    <% else %>
-    <p>
-      <%= link_to recipe_likes_path(@recipe), method: :post, remote: true, data: {"turbolinks" => false} do %>
-        <span class="likebtn">♡</span><%= @recipe.likes.count %>
-      <% end %>
-    </p>
-  <% end %>
+  <p>
+    <%= link_to recipe_likes_path(@recipe), method: :delete, remote: true, data: {"turbolinks" => false} do %>
+      <span class="likebtn" >♥</span><%= @recipe.likes.count %>
+    <% end %>
+  </p>
+  <% else %>
+  <p>
+    <%= link_to recipe_likes_path(@recipe), method: :post, remote: true, data: {"turbolinks" => false} do %>
+      <span class="likebtn">♡</span><%= @recipe.likes.count %>
+    <% end %>
+  </p>
+<% end %>
