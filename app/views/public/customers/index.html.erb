@@ -4,6 +4,7 @@
   <% @customers.each do |customer| %>
     <div class="card-group mb-3 col-3">
       <div class="card">
+        <!--fallback: "no_image.jpg",format: 'no_image.jpg' の記述で会員が画像を指定していない際にノーイメージの画像を表示することができる-->
         <%= attachment_image_tag customer, :image, fallback: "no_image.jpg",format: 'no_image.jpg', size: "100x200", class: "bd-placeholder-img card-img-top" %>
         <div class="card-body">
           <h5 class="card-title ml-2">
