@@ -2,7 +2,7 @@
   <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
 <h2>ログイン</h2>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  
+
   <div class="form-group mt-3">
     <%= f.label :メールアドレス %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control email" %>
@@ -27,6 +27,6 @@
 
 <div class="form-group row">
       <h5 class: " col-sm-3 " >会員登録がお済みでない方</h5>
-      <p class="col-sm-9">　<%= link_to "こちら",customer_registration_path, class: "btn btn-outline-info" %>  　から登録してください。</p>
+      <p class="col-sm-9">　<%= link_to "こちら",new_customer_registration_path, class: "btn btn-outline-info" %>  　から登録してください。</p>
     </div>
 <%= render "customers/shared/links" %>
